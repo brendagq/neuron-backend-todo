@@ -41,10 +41,21 @@ async function deleteTask( id ) {
 
 }
 
+async function getTaskDetail( id ) {
+
+    const taskFound = await Task.findOne()
+    
+    if( !taskFound ) throw new Error('La tarea no existe')
+
+    return  taskFound 
+
+}
+
 
 
 module.exports = {
     createNewTask,
     editTask,
-    deleteTask
+    deleteTask,
+    getTaskDetail
 }

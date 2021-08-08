@@ -34,6 +34,31 @@ router.post('/create/:id', authRoute, async (request,response) =>{
 })
 
 
+router.get('/:id', authRoute, async (request,response) =>{
+    try {
+        const taskData = await task.getTaskDetail( request.params.id )
+
+        response.json({
+            status: 200,
+            success: true,
+            message: 'Detalle de la tarea',
+            data: {
+                task: taskData
+            }
+        })        
+    } catch (error) {
+        response.json({
+            status: 400,
+            success: false,
+            message: error.message,
+            data: {
+                error: error.message
+            }
+        })
+    }
+})
+
+
 router.patch('/edit/:id', authRoute, async (request,response) =>{
     try {
 
