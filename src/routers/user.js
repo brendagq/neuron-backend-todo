@@ -69,8 +69,7 @@ router.get('/:id', authRoute, async (request,response) =>{
             success: true,
             message: 'Detalle del usuario',
             data: {
-                user: userData.userFound,
-                orderTasks: userData.orderTasks
+                user: userData
             }
         })        
     } catch (error) {

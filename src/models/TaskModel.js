@@ -26,7 +26,8 @@ const TaskSchema = mongoose.Schema({
         type: String
     },
     status:{
-        type: Number
+        type: Number,
+        default: 0
     }
 },
 {

@@ -40,30 +40,7 @@ async function getUserDetail( id ) {
     
     if( !userFound ) throw new Error('El usuario no fue encontrado')
 
-    const orderTasks = await Task.aggregate([
-        {
-            $match:{
-                userId : id
-            }
-        },
-        {
-            $group:{
-                _id : "$status",
-                tasks: {
-                    $push:{
-                        title : "$title",
-                        description : "$description",
-                        dateStart : "$dateStart",
-                        dateEnd : "$dateEnd",
-                        status : "$status"
-                    }
-                }
-            }
-        }
-    ])
-
-
-    return  { userFound, orderTasks }
+    return  userFound 
 
 }
 
