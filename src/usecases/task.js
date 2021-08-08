@@ -43,7 +43,7 @@ async function deleteTask( id ) {
 
 async function getTaskDetail( id ) {
 
-    const taskFound = await Task.findOne()
+    const taskFound = await Task.findById( id )
     
     if( !taskFound ) throw new Error('La tarea no existe')
 
